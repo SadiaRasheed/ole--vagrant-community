@@ -94,7 +94,6 @@ Vagrant.configure(2) do |config|
     sudo ln -s nodejs node
     # install BeLL-Apps
     cd /vagrant
-    mkdir -p ole
     cd ole
     git clone https://github.com/open-learning-exchange/BeLL-Apps.git
     git checkout 333-Community_side_integration_of_288
