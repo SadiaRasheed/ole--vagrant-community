@@ -33,8 +33,8 @@ Vagrant.configure(2) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
-  config.vm.network "forwarded_port", guest: 5984, host: 5984
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 5984, host: 5985
+  config.vm.network "forwarded_port", guest: 8080, host: 5985
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -96,11 +96,9 @@ Vagrant.configure(2) do |config|
     cd /vagrant
     mkdir -p ole
     cd ole
-    wget https://github.com/open-learning-exchange/BeLL-Apps/archive/0.12.16.zip
-    unzip 0.12.16.zip
-    #ln -s BeLL-Apps-* BeLL-Apps ## won't work in windows
-    #cd BeLL-Apps
-    cd BeLL-Apps-0.12.16
+    git clone https://github.com/open-learning-exchange/BeLL-Apps.git
+    git checkout 333-Community_side_integration_of_288
+    cd BeLL-Apps
     chmod +x node_modules/.bin/couchapp
     ## check if docker is running
     while ! curl -X GET http://127.0.0.1:5984/_all_dbs ; do
