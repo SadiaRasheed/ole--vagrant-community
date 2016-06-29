@@ -12,8 +12,8 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "debian/jessie64"
-  config.vm.box_version = "8.2.1"
+config.vm.box = "ole/jessie64"
+config.vm.box_version = "0.1.1"
 
   config.vm.hostname = "community"
 
@@ -77,11 +77,6 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    echo "deb http://ftp.de.debian.org/debian jessie-backports main" | sudo tee -a /etc/apt/sources.list
-    sudo aptitude update
-    sudo aptitude install -y docker.io vim vim-syntax-docker nodejs screen htop npm
-    # install docker couchdb
-    sudo docker pull klaemo/couchdb
     sudo docker run -d -p 5984:5984 --name bell -v /srv/data/bell:/usr/local/var/lib/couchdb -v /srv/log/bell:/usr/local/var/log/couchdb klaemo/couchdb
     # use crontab to start couchdb on boot
     sudo crontab -l | sudo tee -a mycron
