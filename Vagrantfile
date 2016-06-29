@@ -96,8 +96,8 @@ Vagrant.configure(2) do |config|
     cd /vagrant
     cd ole
     git clone https://github.com/open-learning-exchange/BeLL-Apps.git
-    git checkout 333-Community_side_integration_of_288
     cd BeLL-Apps
+    git checkout 333-Community_side_integration_of_288
     chmod +x node_modules/.bin/couchapp
     ## check if docker is running
     while ! curl -X GET http://127.0.0.1:5984/_all_dbs ; do
