@@ -135,8 +135,8 @@ config.vm.box_version = "0.1.1"
     echo 'var PortJack = express()' >> server.js
     echo 'PortJack.get(/^(.+)$/, function(req, res) {' >> server.js
     echo 'var options = {' >> server.js
-    echo '"127.0.0.1": "http://127.0.0.1:5984/apps/_design/bell/MyApp/index.html",' >> server.js
-    echo '"localhost": "http://localhost:5984/apps/_design/bell/MyApp/index.html"' >> server.js
+    echo '"127.0.0.1": "http://127.0.0.1:5985/apps/_design/bell/MyApp/index.html",' >> server.js
+    echo '"localhost": "http://localhost:5985/apps/_design/bell/MyApp/index.html"' >> server.js
     echo '}' >> server.js
     echo 'if (options.hasOwnProperty(req.hostname)) {' >> server.js
     echo "res.setHeader('Location', options[req.hostname])" >> server.js
