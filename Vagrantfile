@@ -93,7 +93,7 @@ config.vm.box_version = "0.1.1"
     cd ole
     git clone https://github.com/open-learning-exchange/BeLL-Apps.git
     cd BeLL-Apps
-    git checkout badges
+    git checkout issue_476
     chmod +x node_modules/.bin/couchapp
     ## check if docker is running
     while ! curl -X GET http://127.0.0.1:5984/_all_dbs ; do
